@@ -589,7 +589,7 @@ class _HttpParser extends Stream<_HttpIncoming> {
         case _State.RESPONSE_LINE_ENDING:
           _expect(byte, _CharCode.LF);
           _messageType == _MessageType.RESPONSE;
-          if (_statusCode < 100 || _statusCode > 599) {
+          if (_statusCode < 100) {
             throw new HttpException("Invalid response status code");
           } else {
             // Check whether this response will never have a body.
